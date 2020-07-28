@@ -117,6 +117,12 @@ const errorAfterware = onError(
       LogRocket.captureException(operation, {
         type: 'Timeout'
       })
+    } else if (
+      graphQLErrors?.[0].message === 'AuthenticationError: Forbidden' &&
+      !store.getters['auth0/isAuthorzingUser']
+    ) {
+      store.dispatch('auth0/authorize')
+      this.$apollo.skipAll = true
     } else if (response) {
       response.errors = null
     }
