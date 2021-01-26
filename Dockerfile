@@ -30,8 +30,8 @@ RUN npm run build
 FROM nginx:stable
 
 # Reuse the build args due to multi-stage Docker build
-ARG VUE_APP_PUBLIC_PATH="/"
-ENV VUE_APP_PUBLIC_PATH=$VUE_APP_PUBLIC_PATH
+# ARG VUE_APP_PUBLIC_PATH="/prefectui/"
+ENV VUE_APP_PUBLIC_PATH="/prefectui/"
 
 # Update package list and install the jq package
 # which we use for manipulating settings JSON blobs
