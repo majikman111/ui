@@ -374,7 +374,7 @@ function scrollToHash(to) {
 }
 
 const router = new Router({
-  base: process.env.VUE_APP_PUBLIC_PATH || '/',
+  base: '/prefectui/',
   mode: 'history',
   routes,
   scrollBehavior(to) {
